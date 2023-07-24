@@ -30,6 +30,8 @@ class Person
     return true
   end
 
+  # Method to generate an id randomly
+
   def generate_id
     rand(1_000..9_999)
   end  
