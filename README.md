@@ -146,6 +146,6 @@ I would like to thank **![Microverse](https://img.shields.io/badge/Microverse-bl
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](https://github.com/rivasbolinga/school-library/blob/1-add-classes/LICENSE.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
