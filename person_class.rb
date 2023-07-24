@@ -32,6 +32,3 @@ class Person
     rand(1_000..9_999)
   end  
 end
-
-person1 = Person.new("John", 25, false)
-puts person1
