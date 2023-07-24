@@ -9,4 +9,9 @@ class Teacher < Person
     super(name, age, parent_permission)
     @specialization = specialization
   end
+
+  #Override can_use_services? so it always returns true.
+  def can_use_services?
+    return true
+  end
 end
