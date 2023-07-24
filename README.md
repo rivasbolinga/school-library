@@ -77,14 +77,17 @@ Install ruby. To install ruby in your machine you can follow the steps listed in
 
 Clone this repository to your desired folder:
 ```
-  cd my-enumerable
+  cd school-library
   git clone git@github.com:myaccount/my-project.git
 ```
 
 ### Usage
+
 To run the project, execute the following command:
 ```
-  ruby school-library.rb
+  ruby teacher_class.rb
+  ruby student_class.rb
+  ruby person_class.rb
 ```
 
 
