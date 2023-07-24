@@ -23,12 +23,12 @@ class Person
   # Public method can_use_services? that returns true if person is of age or if they have permission from parents.
 
   def can_use_services?
-    of_age?  || @parent_permission
+    of_age? || @parent_permission
   end
 
   # Method to generate an id randomly
 
   def generate_id
     rand(1_000..9_999)
-  end  
+  end
 end

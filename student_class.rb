@@ -1,7 +1,6 @@
 require_relative 'person_class'
 
 class Student < Person
-
   attr_reader :classroom
 
   # Constructor extends parent's constructor by adding @classroom and a parameter for it.
@@ -11,10 +10,9 @@ class Student < Person
     @classroom = classroom
   end
 
-# Method play_hooky that returns "¯\(ツ)/¯".
+  # Method play_hooky that returns "¯\(ツ)/¯".
 
   def play_hooky
     "¯\\(ツ)/¯"
   end
-  
 end
