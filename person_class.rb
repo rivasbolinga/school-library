@@ -1,4 +1,4 @@
-require_relative './nameable'
+require_relative 'nameable'
 
 class Person < Nameable
   # Constructor with instance variables
@@ -14,6 +14,12 @@ class Person < Nameable
 
   attr_reader :i
   attr_accessor :name, :age
+  
+    # Turn person into nameable from class Nameable
+
+  def correct_name
+    @name
+  end
 
   # Private method of_age? that returns true if @age is greater or equal to 18 and false otherwise.
 
@@ -33,11 +39,5 @@ class Person < Nameable
 
   def generate_id
     rand(1_000..9_999)
-  end
-
-  # Turn person into nameable from class Nameable
-
-  def correct_name
-    @name
   end
 end
