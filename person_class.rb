@@ -14,8 +14,8 @@ class Person < Nameable
 
   attr_reader :i
   attr_accessor :name, :age
-  
-    # Turn person into nameable from class Nameable
+
+  # Turn person into nameable from class Nameable
 
   def correct_name
     @name

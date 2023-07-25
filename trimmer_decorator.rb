@@ -6,4 +6,3 @@ class TrimmerDecorator < Decorator
     original_name.length > 10 ? original_name[0..9] : original_name
   end
 end
-
