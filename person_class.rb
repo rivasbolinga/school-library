@@ -33,4 +33,10 @@ class Person < Nameable
   def generate_id
     rand(1_000..9_999)
   end
+
+  # Turn person into nameable from class Nameable
+
+  def correct_name
+    @name
+  end
 end
