@@ -1,4 +1,6 @@
-class Person
+require_relative './nameable'
+
+class Person < Nameable
   # Constructor with instance variables
   def initialize(name = 'Unknown', age = nil, parent_permission: true)
     @id = generate_id
