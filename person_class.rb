@@ -3,6 +3,7 @@ require_relative './nameable'
 class Person < Nameable
   # Constructor with instance variables
   def initialize(name = 'Unknown', age = nil, parent_permission: true)
+    super()
     @id = generate_id
     @name = name
     @age = age
