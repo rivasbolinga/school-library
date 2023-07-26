@@ -1,6 +1,9 @@
 require_relative 'nameable'
+require_relative 'rental_class'
 
 class Person < Nameable
+  attr_reader :i, :rentals
+  attr_accessor :name, :age
   # Constructor with instance variables
   def initialize(name = 'Unknown', age = nil, parent_permission: true)
     super()
@@ -8,12 +11,14 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
-  # Getters and setteres
+  def add_rental(rental)
+    @rentals << rental
+  end
 
-  attr_reader :i
-  attr_accessor :name, :age
+
 
   # Turn person into nameable from class Nameable
 
