@@ -22,4 +22,3 @@ puts book2.rentals.map(&:date)
 puts book1.rentals.map(&:date)
 puts person1.rentals.count
 puts person3.rentals.count
-puts rental1
