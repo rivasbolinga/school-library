@@ -11,10 +11,9 @@ person1 = Person.new(1, "John")
 person2 = Person.new(2, "Jane")
 
 # Create rentals and establish relationships
-rental1 = Rental.new(101, book1, person1)
-rental2 = Rental.new(102, book1, person2)
-rental3 = Rental.new(103, book2, person1)
+rental1 = Rental.new("2017-12-22", book1, person1)
+rental2 = Rental.new("2017-12-31", book1, person2)
+rental3 = Rental.new("2018-12-31", book2, person1)
 
-# Accessing the rentals from a book or person
-puts book1.rentals # List of rentals for Book 1
-puts person1.rentals  # List of rentals for Person John
+puts book2.rentals.map { |rental| rental.date }
+puts book1.rentals.map  { |rental| rental.date }
