@@ -54,7 +54,7 @@ In this initial step, the learning objectives are:
 
 ### Key Features <a name="key-features"></a>
 
-- Add new students or teacher.
+- Add new students and teachers.
 - Add new books.
 - Save records of who borrowed a given book and when. 
 
@@ -109,9 +109,9 @@ To run the project, execute the following command:
 
 ## 🔮 Future Features <a name="future-features"></a>
 
-- Use the "Decorator" design pattern.
-- Set up associations.
 - Add basic UI.
+- Preserve data.
+- Run unit tests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
