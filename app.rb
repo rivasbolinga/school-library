@@ -10,8 +10,7 @@ class App
 
 
 def list_all_books
-  @books.each { | book| puts " #{book}" }
-
+  @books.each { | book| puts "Title: #{book.title}, Author: #{book.author}" }
 end
 
 def list_all_people
@@ -57,6 +56,16 @@ def create_teacher
   new_teacher = Teacher.new(age,name, specialization)
   puts "#{name} as teacher, has been created succesfully!"
   @people.push(new_teacher)
+end
+def create_book
+  puts "You have selected create a book, please insert the following"
+  puts "Title: "
+  title = gets.chomp
+  puts "Author:"
+  author = gets.chomp
+  new_book = Book.new(title, author)
+  @books.push(new_book)
+  puts "#{title} has been created succesfully!"
 end
 
 end
