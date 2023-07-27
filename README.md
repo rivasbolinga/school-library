@@ -54,9 +54,15 @@ In this initial step, the learning objectives are:
 
 ### Key Features <a name="key-features"></a>
 
-- Add new students and teachers.
-- Add new books.
-- Save records of who borrowed a given book and when. 
+For this app the users can chose between 7 options in the command:
+- List all books.
+- List all people.
+- Create a person (teacher or student, not a plain Person).
+- Create a book.
+- Create a rental.
+- List all rentals for a given person id.
+- Exit app.
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -109,7 +115,6 @@ To run the project, execute the following command:
 
 ## 🔮 Future Features <a name="future-features"></a>
 
-- Add basic UI.
 - Preserve data.
 - Run unit tests.
 
