@@ -84,5 +84,13 @@ end
 
 
 
+def run
+  options()
+  option = gets.chomp
+  apply_option(option)
+end
+
+
+
 end
 
