@@ -2,7 +2,8 @@ require_relative 'classes/student_class'
 require_relative 'classes/teacher_class'
 
 class App
-  def initialize()
+  attr_accessor :books, :people, :rentals
+  def initialize
     @people = []
     @books = []
     @rentals = []
@@ -14,7 +15,7 @@ def list_all_books
 end
 
 def list_all_people
-  @people.each { | person| puts "#{person}" }
+  @people.each { | person| puts "[#{person.type}]ID:#{person.id}, Name: #{person.name}, Age:#{person.age}" }
 end
 
 def create_a_person
@@ -67,6 +68,8 @@ def create_book
   @books.push(new_book)
   puts "#{title} has been created succesfully!"
 end
+
+
 
 end
 
