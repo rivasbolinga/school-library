@@ -35,11 +35,11 @@ def list_all_people
   if @people.length == 0
     puts "The list of people is empty"
   else
-  @people.each { | person| puts "[#{person.type}]ID:#{person.id}, Name: #{person.name}, Age:#{person.age}" }
+  @people.each { | person| puts "[#{person.class}]ID:#{person.id}, Name: #{person.name}, Age:#{person.age}" }
   end
 end
 
-def create_a_person
+def create_person
   puts "Do you want to create a student(1) or a teacher(2)? [input the number]:"
   input = gets.chomp
   if input == '1'
@@ -54,13 +54,13 @@ end
 
 def create_student
   puts "You have selected create a student, please insert the following"
-  puts "Age:"
+  print "Age: "
   age = gets.chomp
-  puts "Name:"
+  print "\nName: "
   name = gets.chomp
-  puts "Has parent permission?[Y/N]:"
+  print "Has parent permission?[Y/N]:"
   parent_permission = gets.chomp.downcase == 'y'
-  puts "What is the classroom of the student?:"
+  print "What is the classroom of the student?:"
   classroom = gets.chomp
   new_student = Student.new(age,name,parent_permission, classroom)
   puts "#{name} as student, has been created succesfully!"
@@ -90,6 +90,17 @@ def create_book
   puts "#{title} has been created succesfully!"
 end
 
+def create_rental
+  if @books.length == 0
+    puts "Sorry, there are not books to be rented"
+  elsif @people.length == 0
+    puts "Sorry, there are not people to rent"
+  else
+    print 'Chose a book:'
+    @books.each
+  end
+end
+
 def apply_option(option)
   case option
   when '1'
@@ -97,7 +108,7 @@ def apply_option(option)
   when '2'
     list_all_people()
   when '3'
-    create_a_person()
+    create_person()
   when '4'
     create_book()
   when '5'
@@ -113,9 +124,11 @@ end
 
 
 def run
-  options()
-  option = gets.chomp
-  apply_option(option)
+  loop do
+    options()
+    option = gets.chomp
+    apply_option(option)
+  end
 end
 
 

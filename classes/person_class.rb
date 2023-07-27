@@ -2,7 +2,7 @@ require_relative 'nameable'
 require_relative 'rental_class'
 
 class Person < Nameable
-  attr_reader :i
+  attr_reader :id
   attr_accessor :name, :age, :rentals
 
   # Constructor with instance variables
