@@ -96,8 +96,16 @@ def create_rental
   elsif @people.length == 0
     puts "Sorry, there are not people to rent"
   else
-    print 'Chose a book:'
-    @books.each
+    puts 'Chose a book from the list:'
+     @books.each_with_index { |book, index| puts "#{index}) #{book.title}, #{book.author}" }
+     book_selected = gets.chomp.to_i
+    puts 'Chose a person from the list:'
+    @people.each_with_index { |person, index| puts "#{index}) #{person.name}" }
+     person_selected = gets.chomp.to_i
+     print 'What day was rented?'
+     date = gets.chomp
+     new_rental =  new Rental(date, person_selected, book_selected)
+     rentals.push(new_rental)
   end
 end
 
