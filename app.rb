@@ -82,6 +82,10 @@ def create_book
   puts "#{title} has been created succesfully!"
 end
 
+def apply_option(option)
+  options = {'1' => list_all_books(), '2' => list_all_people(), '3' => create_a_person(), '4' => create_book()}
+  options[option]
+end
 
 
 def run
