@@ -105,7 +105,7 @@ def create_rental
      print 'What day was rented? [dd-mm-yyyy]'
      date = gets.chomp
      new_rental =  Rental.new(date, person_selected, book_selected)
-     rentals.push(new_rental)
+     @rentals.push(new_rental)
      puts "Rental created successfully!"
   end
 end
