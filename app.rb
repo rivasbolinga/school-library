@@ -9,6 +9,19 @@ class App
     @rentals = []
   end
 
+  def options
+    puts 'Welcome to School Library'
+    puts 'Please choose one of the following options:'
+    puts '1 - List all books'
+    puts '2 - List all people'
+    puts '3 - Create a person'
+    puts '4 - Create a book'
+    puts '5 - Create a rental'
+    puts 'List all rentals for a given person id'
+    puts '7 - Exit'
+  end
+
+
 
 def list_all_books
   @books.each { | book| puts "Title: #{book.title}, Author: #{book.author}" }
