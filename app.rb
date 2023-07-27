@@ -102,13 +102,36 @@ def create_rental
     puts 'Chose a person from the list:'
     @people.each_with_index { |person, index| puts "#{index + 1}) #{person.name}, #{person.class}" }
      person_selected = gets.chomp.to_i - 1
-     print 'What day was rented? [dd-mm-yyyy]'
-     date = gets.chomp
-     new_rental =  Rental.new(date, person_selected, book_selected)
+  if book_selected >= 0 && book_selected < @books.length && person_selected >= 0 && person_selected < @people.length
+        print 'What day was rented? [dd-mm-yyyy]'
+        date = gets.chomp
+        new_rental = Rental.new(date, @people[person_selected], @books[book_selected])
      @rentals.push(new_rental)
      puts "Rental created successfully!"
+  else 
+    puts 'Sorry, invalid person or book selecter, try again'
+  end
   end
 end
+
+def list_rentals_by_id
+    print "Please insert ID:"
+    id = gets.chomp.to_i
+
+    person = @people.find { |p| p.id == id }
+    if person
+      if person.rentals.empty?
+        puts "No rentals found for this person."
+      else
+        puts "Rentals for #{person.name}:"
+        person.rentals.each do |rental|
+          puts "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.author}"
+        end
+      end
+    else
+      puts "Person with ID #{id} not found."
+    end
+  end
 
  def exit_app
     puts 'Exiting the application. Goodbye!'
@@ -128,7 +151,7 @@ def apply_option(option)
   when '5'
     create_rental()
   when '6'
-    list_all_rentals()
+    list_rentals_by_id()
   when '7'
     exit_app()
   else
