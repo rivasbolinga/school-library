@@ -94,16 +94,16 @@ class App
     return puts 'Sorry, there are no people to rent' if @people.empty?
 
     puts 'Choose a book from the list:'
-    display_books
+    list_all_books
 
+    @books.each_with_index { |book, index| puts "#{index + 1}) Title: \"#{book.title}\", Author: \"#{book.author}\"" }
     book_selected = gets.chomp.to_i - 1
-    return puts 'Invalid book selection.' unless valid_book_selection?(book_selected)
 
-    puts 'Choose a person from the list:'
-    display_people
-
+    puts 'Select a person:'
+    @people.each_with_index do |person, index|
+      puts "#{index + 1}) [#{person.class}] Name: #{person.name}, ID: #{person.id}"
+    end
     person_selected = gets.chomp.to_i - 1
-    return puts 'Invalid person selection.' unless valid_person_selection?(person_selected)
 
     print 'What day was rented? [dd-mm-yyyy]'
     date = gets.chomp
