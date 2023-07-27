@@ -24,7 +24,11 @@ class App
 
 
 def list_all_books
+  if @books.length == 0
+    puts "The list of books if empty"
+  else
   @books.each { | book| puts "Title: #{book.title}, Author: #{book.author}" }
+  end
 end
 
 def list_all_people
@@ -85,19 +89,19 @@ end
 def apply_option(option)
   case option
   when '1'
-    list_all_books
+    list_all_books()
   when '2'
-    list_all_people
+    list_all_people()
   when '3'
-    create_a_person
+    create_a_person()
   when '4'
-    create_book
+    create_book()
   when '5'
-    create_rental
+    create_rental()
   when '6'
-    list_all_rentals
+    list_all_rentals()
   when '7'
-    exit_app
+    exit_app()
   else
     puts 'You have to select one of the options'
   end
