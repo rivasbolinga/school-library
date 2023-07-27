@@ -138,21 +138,19 @@ class App
   end
 
   def apply_option(option)
-    case option
-    when '1'
-      list_all_books
-    when '2'
-      list_all_people
-    when '3'
-      create_person
-    when '4'
-      create_book
-    when '5'
-      create_rental
-    when '6'
-      list_rentals_by_id
-    when '7'
-      exit_app
+    actions = {
+      '1' => method(:list_all_books),
+      '2' => method(:list_all_people),
+      '3' => method(:create_person),
+      '4' => method(:create_book),
+      '5' => method(:create_rental),
+      '6' => method(:list_rentals_by_id),
+      '7' => method(:exit_app)
+    }
+
+    action = actions[option]
+    if action
+      action.call
     else
       puts 'You have to select one of the options'
     end
