@@ -1,5 +1,6 @@
 require_relative 'classes/student_class'
 require_relative 'classes/teacher_class'
+require_relative 'classes/rental_class'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -10,7 +11,6 @@ class App
   end
 
   def options
-    puts 'Welcome to School Library'
     puts 'Please choose one of the following options:'
     puts '1 - List all books'
     puts '2 - List all people'
@@ -97,17 +97,23 @@ def create_rental
     puts "Sorry, there are not people to rent"
   else
     puts 'Chose a book from the list:'
-     @books.each_with_index { |book, index| puts "#{index}) #{book.title}, #{book.author}" }
-     book_selected = gets.chomp.to_i
+     @books.each_with_index { |book, index| puts "#{index + 1}) #{book.title}, #{book.author}" }
+     book_selected = gets.chomp.to_i - 1
     puts 'Chose a person from the list:'
-    @people.each_with_index { |person, index| puts "#{index}) #{person.name}" }
-     person_selected = gets.chomp.to_i
-     print 'What day was rented?'
+    @people.each_with_index { |person, index| puts "#{index + 1}) #{person.name}, #{person.class}" }
+     person_selected = gets.chomp.to_i - 1
+     print 'What day was rented? [dd-mm-yyyy]'
      date = gets.chomp
-     new_rental =  new Rental(date, person_selected, book_selected)
+     new_rental =  Rental.new(date, person_selected, book_selected)
      rentals.push(new_rental)
+     puts "Rental created successfully!"
   end
 end
+
+ def exit_app
+    puts 'Exiting the application. Goodbye!'
+    exit
+  end
 
 def apply_option(option)
   case option
