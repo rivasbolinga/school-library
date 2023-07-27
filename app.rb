@@ -25,14 +25,18 @@ class App
 
 def list_all_books
   if @books.length == 0
-    puts "The list of books if empty"
+    puts "The list of books is empty"
   else
   @books.each { | book| puts "Title: #{book.title}, Author: #{book.author}" }
   end
 end
 
 def list_all_people
+  if @people.length == 0
+    puts "The list of people is empty"
+  else
   @people.each { | person| puts "[#{person.type}]ID:#{person.id}, Name: #{person.name}, Age:#{person.age}" }
+  end
 end
 
 def create_a_person
