@@ -20,7 +20,7 @@ end
 def create_a_person
   puts "Do you want to create a student(1) or a teacher(2)? [input the number]:"
   input = gets.chomp
-  
+  puts "You have selected #{input}"
 end
 
 end
