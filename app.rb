@@ -98,6 +98,9 @@ def apply_option(option)
     list_all_rentals
   when '7'
     exit_app
+  else
+    puts 'You have to select one of the options'
+  end
 end
 
 
