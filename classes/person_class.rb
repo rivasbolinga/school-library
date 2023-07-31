@@ -6,7 +6,7 @@ class Person < Nameable
   attr_accessor :name, :age, :rentals
 
   # Constructor with instance variables
-  def initialize(name = 'Unknown', age = nil, parent_permission: true)
+  def initialize(age = nil, name = 'Unknown', parent_permission: true)
     super()
     @id = generate_id
     @name = name

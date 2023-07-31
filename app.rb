@@ -11,7 +11,7 @@ class App
     @people = []
     @books = []
     @rentals = []
-    @list_elements = ListElements.new(@books, @people)
+    @list_elements = ListElements.new(@books, @people, @rentals)
   end
 
   def create_person
@@ -30,14 +30,14 @@ class App
     puts 'You have selected create a student, please insert the following'
     print 'Age: '
     age = gets.chomp
-    print "\nName: "
+    print 'Name: '
     name = gets.chomp
     print 'Has parent permission?[Y/N]:'
     parent_permission = gets.chomp.downcase == 'y'
     print 'What is the classroom of the student?:'
     classroom = gets.chomp
     new_student = Student.new(age, name, parent_permission, classroom)
-    puts "#{name} as student, has been created succesfully!"
+    puts "#{name} as studentchas been created succesfully!"
     @people.push(new_student)
   end
 
@@ -89,25 +89,6 @@ class App
     puts 'Rental created successfully!'
   end
 
-  def list_rentals_by_id
-    print 'Please insert ID:'
-    id = gets.chomp.to_i
-
-    person = @people.find { |p| p.id == id }
-    if person
-      if person.rentals.empty?
-        puts 'No rentals found for this person.'
-      else
-        puts "Rentals for #{person.name}:"
-        person.rentals.each do |rental|
-          puts "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.author}"
-        end
-      end
-    else
-      puts "Person with ID #{id} not found."
-    end
-  end
-
   def exit_app
     puts 'Exiting the application. Goodbye!'
     exit
@@ -120,7 +101,7 @@ class App
       '3' => method(:create_person),
       '4' => method(:create_book),
       '5' => method(:create_rental),
-      '6' => method(:list_rentals_by_id),
+      '6' => @list_elements.method(:list_rentals_by_id),
       '7' => method(:exit_app)
     }
 
