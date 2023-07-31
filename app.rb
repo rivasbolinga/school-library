@@ -133,8 +133,8 @@ class App
   end
 
   def run
-      ui = UI.new
-      ui.welcome
+    ui = UI.new
+    ui.welcome
     loop do
       ui.options
       option = gets.chomp

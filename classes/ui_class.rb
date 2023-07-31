@@ -1,11 +1,11 @@
-class UI 
-   def welcome
+class UI
+  def welcome
     puts '---------------------------'
     puts ' WELCOME TO SCHOOL LIBRARY'
     puts '---------------------------'
-   end
+  end
 
-   def options
+  def options
     puts 'Please choose one of the following options:'
     puts '1 - List all books'
     puts '2 - List all people'
@@ -14,5 +14,5 @@ class UI
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
-    end
   end
+end
