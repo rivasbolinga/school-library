@@ -21,7 +21,7 @@ class ListElements
     end
   end
 
-   def list_rentals_by_id
+  def list_rentals_by_id
     print 'Please insert ID:'
     id = gets.chomp.to_i
     person = @people.find { |p| p.id == id }
