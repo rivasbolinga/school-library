@@ -108,6 +108,12 @@ To run the project, execute the following command:
 - GitHub: [@rivasbolinga](https://github.com/rivasbolinga)
 - LinkedIn: [Andrea Rivas](https://www.linkedin.com/in/andrearivaspalacios/)
 
+👤 **Baqar Abbas**
+
+- GitHub: [@Baqar](https://github.com/baqar-abbas)
+- Twitter: [@BaqarAbbas9](https://twitter.com/BaqarAbbas9)
+- LinkedIn: [Baqar Abbas](https://www.linkedin.com/in/baqar-abbas/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
