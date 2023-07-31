@@ -1,7 +1,7 @@
 class UI 
    def welcome
     puts '---------------------------'
-    puts 'WELCOME TO SCHOOL LIBRARY'
+    puts ' WELCOME TO SCHOOL LIBRARY'
     puts '---------------------------'
    end
 

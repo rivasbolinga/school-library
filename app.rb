@@ -2,6 +2,7 @@ require_relative 'classes/student_class'
 require_relative 'classes/teacher_class'
 require_relative 'classes/rental_class'
 require_relative 'classes/ui_class'
+require_relative 'classes/list_elements_class'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -10,22 +11,7 @@ class App
     @people = []
     @books = []
     @rentals = []
-  end
-
-  def list_all_books
-    if @books.empty?
-      puts 'The list of books is empty'
-    else
-      @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
-    end
-  end
-
-  def list_all_people
-    if @people.empty?
-      puts 'The list of people is empty'
-    else
-      @people.each { |person| puts "[#{person.class}]ID:#{person.id}, Name: #{person.name}, Age:#{person.age}" }
-    end
+    @list_elements = ListElements.new(@books, @people)
   end
 
   def create_person
@@ -129,8 +115,8 @@ class App
 
   def apply_option(option)
     actions = {
-      '1' => method(:list_all_books),
-      '2' => method(:list_all_people),
+      '1' => @list_elements.method(:list_all_books),
+      '2' => @list_elements.method(:list_all_people),
       '3' => method(:create_person),
       '4' => method(:create_book),
       '5' => method(:create_rental),
@@ -147,9 +133,9 @@ class App
   end
 
   def run
-    loop do
       ui = UI.new
       ui.welcome
+    loop do
       ui.options
       option = gets.chomp
       apply_option(option)
