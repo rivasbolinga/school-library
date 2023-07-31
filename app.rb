@@ -1,6 +1,7 @@
 require_relative 'classes/student_class'
 require_relative 'classes/teacher_class'
 require_relative 'classes/rental_class'
+require_relative 'classes/ui_class'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -9,17 +10,6 @@ class App
     @people = []
     @books = []
     @rentals = []
-  end
-
-  def options
-    puts 'Please choose one of the following options:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
   end
 
   def list_all_books
@@ -158,7 +148,9 @@ class App
 
   def run
     loop do
-      options
+      ui = UI.new
+      ui.welcome
+      ui.options
       option = gets.chomp
       apply_option(option)
     end
