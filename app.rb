@@ -37,9 +37,9 @@ class App
   end
 
   def save_data
-    @data_storage.save_data('books.json', @books)
-    @data_storage.save_data('people.json', @books)
-    @data_storage.save_data('rentals.json', @books)
+    @data_storage.create_data_saver('books.json', @books)
+    @data_storage.create_data_saver('people.json', @people)
+    @data_storage.create_data_saver('rentals.json', @rentals)
   end
 
   def run
