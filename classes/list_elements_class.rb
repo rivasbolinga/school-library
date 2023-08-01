@@ -33,16 +33,16 @@ class ListElements
     people = list_all_people
     rentals = list_all_rentals
     id = gets.chomp.to_i
-    person = people.find { |p| p['id'].to_i == id }
+    person = people.find { |p| p['id'] == id }
     puts person
     puts rentals
     if person
       if rentals.empty?
         puts 'No rentals found for this person.'
       else
-        puts "Rentals for #{person['name']}:"
+        # puts "Rentals for #{person['name']}:"
   
-       rentals.each { |rental| puts "[#{rental['date']}]" }
+       rentals.each { |rental| puts "Date: #{rental['date']}, Book:#{rental['book']}, Person: #{rental['person']}" }
       end
     else
       puts "Person with ID #{id} not found."
