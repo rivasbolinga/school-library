@@ -4,7 +4,7 @@ require_relative 'classes/rental_class'
 require_relative 'classes/ui_class'
 require_relative 'classes/list_elements_class'
 require_relative 'classes/create_elements_class'
-
+require_relative 'classes/data_manager_class'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -15,11 +15,7 @@ class App
     @rentals = []
     @list_elements = ListElements.new(@books, @people, @rentals)
     @creale_elements = CreateElements.new(@books, @people, @rentals)
-  end
-
-  def exit_app
-    puts 'Exiting the application. Goodbye!'
-    exit
+    @data_storage = DataStorage.new
   end
 
   def apply_option(option)
@@ -40,6 +36,12 @@ class App
     end
   end
 
+  def save_data
+    @data_storage.save_data('books.json', @books)
+    @data_storage.save_data('people.json', @books)
+    @data_storage.save_data('rentals.json', @books)
+  end
+
   def run
     ui = UI.new
     ui.welcome
@@ -48,5 +50,11 @@ class App
       option = gets.chomp
       apply_option(option)
     end
+  end
+
+  def exit_app
+    save_data
+    puts 'Exiting the application. Goodbye!'
+    exit
   end
 end
