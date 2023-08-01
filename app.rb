@@ -46,9 +46,11 @@ class App
   end
 
   def load_books
+    puts 'Loading books...'
     if File.exist?('data/books.json')
       data = JSON.parse(File.read('data/books.json'))
       @books = data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
+      puts 'Books loaded successfully.'
     else
       puts 'No books data file found. Starting with an empty book list.'
       @books = []
@@ -56,6 +58,7 @@ class App
   end
 
   def load_people
+    puts 'Loading people...'
     if File.exist?('data/people.json')
       data = JSON.parse(File.read('data/people.json'))
       @people = data.map do |person_data|
@@ -65,6 +68,7 @@ class App
           Teacher.new(person_data['age'], person_data['name'], person_data['specialization'])
         end
       end
+      puts 'People loaded successfully.'
     else
       puts 'No people data file found. Starting with an empty people list.'
       @people = []
@@ -72,14 +76,16 @@ class App
   end
 
   def load_rentals
+    puts 'Loading rentals...'
     if File.exist?('data/rentals.json')
       data = JSON.parse(File.read('data/rentals.json'))
       @rentals = data.map do |rental_data|
         book = @books.find { |book| book.title == rental_data['book']['title'] && book.author == rental_data['book']['author'] }
         person = @people.find { |person| person.name == rental_data['person']['name'] }
-
+  
         Rental.new(rental_data['date'], person, book) if book && person
       end.compact
+      puts 'Rentals loaded successfully.'
     else
       puts 'No rentals data file found. Starting with an empty rentals list.'
       @rentals = []
