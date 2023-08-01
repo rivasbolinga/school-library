@@ -8,6 +8,10 @@ class Student < Person
     super(age, name, parent_permission: parent_permission)
     @classroom = classroom
   end
+  
+   def to_hash
+    super.merge(classroom: @classroom)
+   end
 
   def play_hooky
     '¯\(ツ)/¯'

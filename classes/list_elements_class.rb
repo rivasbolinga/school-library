@@ -3,6 +3,7 @@ class ListElements
     @books = books
     @people = people
     @rentals = rentals
+    @convert_data = ConvertData.new
   end
 
   def list_all_books
