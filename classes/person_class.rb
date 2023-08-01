@@ -15,6 +15,16 @@ class Person < Nameable
     @rentals = []
   end
 
+  def to_hash
+    {
+      name: @name,
+      age: @age,
+      parent_permission: @parent_permission,
+      rentals: @rentals,
+      type: self.class.to_s
+    }
+  end
+
   def add_rental(rental)
     @rentals.push(rental)
     @rentals << rental
