@@ -17,9 +17,11 @@ class Person < Nameable
 
   def to_hash
     {
+      id: @id,
       name: @name,
       age: @age,
       parent_permission: @parent_permission,
+
       type: self.class.to_s
     }
   end
@@ -52,6 +54,6 @@ class Person < Nameable
   # Method to generate an id randomly
 
   def generate_id
-    rand(1_000..9_999)
+    rand(1..1000)
   end
 end

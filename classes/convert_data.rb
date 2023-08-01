@@ -17,7 +17,8 @@ class ConvertData
     rental_data = {
       date: rentals.date,
       book: book_object[:title],
-      person: person_object[:name]
+      person: person_object[:name],
+      id_of_person: person_object[:id]
     }
     @rentals_data << rental_data
   end
