@@ -62,6 +62,10 @@ For this app the users can chose between 7 options in the command:
 - Create a rental.
 - List all rentals for a given person id.
 - Exit app.
+- Refactored the code using DRY, KISS and YAGNI and SOLID principles.
+- Preserve data in json files. 
+- Refactored respective methods for listing data from json files. 
+- Created new methods for saving data, loading data and dsiplaying preserved data from json files.
 
 
 
