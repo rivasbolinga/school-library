@@ -92,6 +92,11 @@ class App
   #   end
   # end
 
+  # def unificate_data
+  #   @convert_data.unificate_books(@books)
+  #   @convert_data.unificate_people(@people)
+  # end
+
   def save_data
     books_data = @books.map { |book| @convert_data.convert_book(book) }
     people_data = @people.map { |person| @convert_data.convert_person(person) }

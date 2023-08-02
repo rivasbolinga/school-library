@@ -4,11 +4,11 @@ require_relative 'classroom_class'
 class Student < Person
   attr_reader :classroom
 
-  def initialize(age, name, parent_permission, classroom)
-    super(age, name, parent_permission: parent_permission)
+  def initialize( id, age, name, parent_permission, classroom)
+    super(id, age, name, parent_permission: parent_permission)
     @classroom = classroom
   end
-  
+
    def to_hash
     super.merge(classroom: @classroom)
    end

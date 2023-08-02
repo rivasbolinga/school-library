@@ -6,6 +6,7 @@ class CreateElements
     @people = people
     @rentals = rentals
     @list_elements = ListElements.new(@books, @people, @rentals)
+    @unificate_data = ConvertData.new
   end
 
   def create_person
@@ -61,26 +62,34 @@ class CreateElements
     puts "🟢🟢 #{title} has been created succesfully!"
   end
 
-  def create_rental
-    return puts 'Sorry, there are no books to be rented' if @books.empty?
-    return puts 'Sorry, there are no people to rent' if @people.empty?
+def create_rental
+  all_books = @unificate_data.unificate_books(@books)
+  all_people = @unificate_data.unificate_person(@people)
 
-    puts 'Choose a book from the list:'
-
-    @list_elements.list_all_books
-    @books.each_with_index do |book, index|
-      puts "#{index + 1}) Title: \"#{book.title}\", Author: \"#{book.author}\""
-    end
-    book_selected = gets.chomp.to_i - 1
-    puts 'Select a person:'
-    @people.each_with_index do |person, index|
-      puts "#{index + 1}) [#{person.class}] Name: #{person.name}, ID: #{person.id}"
-    end
-    person_selected = gets.chomp.to_i - 1
-    print 'What day was rented? [dd-mm-yyyy]'
-    date = gets.chomp
-    new_rental = Rental.new(date, @people[person_selected], @books[book_selected])
-    @rentals.push(new_rental)
-    puts '🟢🟢 Rental created successfully!'
+  puts 'Please choose a book:'
+  puts '--------------------'
+  all_books.each_with_index do |book, index|
+    puts "[#{index + 1}]: Title: #{book.title}, Author: #{book.author}"
   end
+  puts 'Please enter the index of the book you want to collect:'
+  book_chosen = gets.chomp.to_i
+
+  puts 'Please choose a person:'
+  puts '--------------------'
+  all_people.each_with_index do |person, index|
+    puts "[#{index + 1}]: ID: #{person.id} Name: #{person.name}, Profession: #{person.class}"
+  end
+  person_chosen = gets.chomp.to_i
+
+  book_to_collect = all_books[book_chosen - 1]
+  person_to_collect = all_people[person_chosen - 1]
+  id_of_person = person_to_collect.id
+  print 'What day was rented? [dd-mm-yyyy]: '
+  date = gets.chomp
+
+  new_rental = Rental.new(date, person_to_collect, book_to_collect, id_of_person)
+  @rentals.push(new_rental)
+  puts '🟢🟢 Rental created successfully!'
+end
+
 end
