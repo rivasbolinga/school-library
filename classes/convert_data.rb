@@ -1,3 +1,5 @@
+require 'date'
+
 class ConvertData
   def initialize
     @rentals_data = []
@@ -12,8 +14,7 @@ class ConvertData
     person.to_hash
   end
 
- 
-def unificate_books(books)
+  def unificate_books(books)
     retrieved_books = @load_data.load_data('data/books.json')
     books_in_app = books.map { |book| { 'title' => book.title, 'author' => book.author, 'object' => book } }
     all_books_data = (books_in_app + retrieved_books).uniq { |book| book['title'] }
@@ -29,9 +30,11 @@ def unificate_books(books)
 
   def unificate_person(person)
     retrieved_people = @load_data.load_data('data/people.json')
-    people_in_app = person.map {| person | { 'name' => person.name, 'type' => person.class, 'age' => person.age, 'id'=> person.id } }
-    all_people = (people_in_app + retrieved_people).uniq { |person| person['name'] }
-    all_people.map do | person_data |
+    people_in_app = person.map do |persoapp|
+      { 'name' => persoapp.name, 'type' => persoapp.class, 'age' => persoapp.age, 'id' => persoapp.id }
+    end
+    all_people = (people_in_app + retrieved_people)
+    all_people.map do |person_data|
       people_object = person_data['object']
       if people_object.nil?
         Person.new(person_data['id'], person_data['age'], person_data['name'])
@@ -41,36 +44,21 @@ def unificate_books(books)
     end
   end
 
-    def unificate_rentals(rentals_data)
+  def unificate_rentals(rentals_data)
     retrieved_rentals = @load_data.load_data('data/rentals.json')
-    rentals_in_app = rentals_data.map do |rental|
+
+    all_retrieved_rentals = retrieved_rentals.flatten
+
+    rentals_data_hashes = rentals_data.map do |rental|
       {
-        'date' => rental.date,
+        'date' => rental.date.to_s,
         'person' => rental.person.name,
-        'book' => rental.book.title,  
-        'id' => rental.id              
+        'book' => rental.book.title,
+        'id' => rental.id
       }
     end
-
-    all_rentals_data = (rentals_in_app + retrieved_rentals)
-
-    all_rentals_data.map do |rental_data|
-      rental_object = rental_data['object']
-      if rental_object.nil?
-        # Create a new rental object using the data from the hash
-        new_rental = Rental.new(
-          rental_data['date'],
-          rental_data['person'],
-          rental_data['book'],
-          rental_data['id']
-        )
-      else
-        # Use the existing rental object from the app
-        rental_object
-      end
-    end
+    all_retrieved_rentals + rentals_data_hashes
   end
-
 
   def convert_rentals(rentals)
     book_object = convert_book(rentals.book)
@@ -79,7 +67,7 @@ def unificate_books(books)
       date: rentals.date,
       book: book_object[:title],
       person: person_object[:name],
-      id_of_person: person_object[:id]
+      id: person_object[:id]
     }
     @rentals_data << rental_data
   end

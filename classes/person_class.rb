@@ -8,7 +8,7 @@ class Person < Nameable
   # Constructor with instance variables
   def initialize(id, name = 'Unknown', age = nil, parent_permission: true)
     super()
-    @id = id || generate_id 
+    @id = id || generate_id
     @name = name
     @age = age
     @parent_permission = parent_permission

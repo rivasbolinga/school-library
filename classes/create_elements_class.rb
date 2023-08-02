@@ -62,34 +62,30 @@ class CreateElements
     puts "🟢🟢 #{title} has been created succesfully!"
   end
 
-def create_rental
-  all_books = @unificate_data.unificate_books(@books)
-  all_people = @unificate_data.unificate_person(@people)
+  def create_rental
+    all_books = @unificate_data.unificate_books(@books)
+    all_people = @unificate_data.unificate_person(@people)
 
-  puts 'Please choose a book:'
-  puts '--------------------'
-  all_books.each_with_index do |book, index|
-    puts "[#{index + 1}]: Title: #{book.title}, Author: #{book.author}"
+    puts 'Please choose a book:'
+    all_books.each_with_index { |book, index| puts "[#{index + 1}]: Title: #{book.title}, Author: #{book.author}" }
+    print 'Please enter the index of the book you want to collect: '
+    book_chosen = gets.chomp.to_i
+
+    puts 'Please choose a person:'
+    all_people.each_with_index do |person, index|
+      puts "[#{index + 1}]: ID: #{person.id} Name: #{person.name}, Profession: #{person.class}"
+    end
+    print 'Please enter the index of the person: '
+    person_chosen = gets.chomp.to_i
+
+    book_to_collect = all_books[book_chosen - 1]
+    person_to_collect = all_people[person_chosen - 1]
+
+    print 'What day was rented? [dd-mm-yyyy]: '
+    date = gets.chomp
+
+    new_rental = Rental.new(date, person_to_collect, book_to_collect, person_to_collect.id)
+    @rentals.push(new_rental)
+    puts '🟢🟢 Rental created successfully!'
   end
-  puts 'Please enter the index of the book you want to collect:'
-  book_chosen = gets.chomp.to_i
-
-  puts 'Please choose a person:'
-  puts '--------------------'
-  all_people.each_with_index do |person, index|
-    puts "[#{index + 1}]: ID: #{person.id} Name: #{person.name}, Profession: #{person.class}"
-  end
-  person_chosen = gets.chomp.to_i
-
-  book_to_collect = all_books[book_chosen - 1]
-  person_to_collect = all_people[person_chosen - 1]
-  id_of_person = person_to_collect.id
-  print 'What day was rented? [dd-mm-yyyy]: '
-  date = gets.chomp
-
-  new_rental = Rental.new(date, person_to_collect, book_to_collect, id_of_person)
-  @rentals.push(new_rental)
-  puts '🟢🟢 Rental created successfully!'
-end
-
 end
