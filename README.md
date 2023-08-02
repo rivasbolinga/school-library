@@ -62,6 +62,10 @@ For this app the users can chose between 7 options in the command:
 - Create a rental.
 - List all rentals for a given person id.
 - Exit app.
+- Refactored the code using DRY, KISS and YAGNI and SOLID principles.
+- Preserve data in json files. 
+- Refactored respective methods for listing data from json files. 
+- Created new methods for saving data, loading data and dsiplaying preserved data from json files.
 
 
 
@@ -121,8 +125,7 @@ To run the project, execute the following command:
 
 ## 🔮 Future Features <a name="future-features"></a>
 
-- Preserve data.
-- Run unit tests.
+- Run unit tests using RSPEC.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

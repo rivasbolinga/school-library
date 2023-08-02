@@ -6,13 +6,24 @@ class Person < Nameable
   attr_accessor :name, :age, :rentals
 
   # Constructor with instance variables
-  def initialize(age = nil, name = 'Unknown', parent_permission: true)
+  def initialize(id, name = 'Unknown', age = nil, parent_permission: true)
     super()
-    @id = generate_id
+    @id = id || generate_id
     @name = name
     @age = age
     @parent_permission = parent_permission
     @rentals = []
+  end
+
+  def to_hash
+    {
+      id: @id,
+      name: @name,
+      age: @age,
+      parent_permission: @parent_permission,
+
+      type: self.class.to_s
+    }
   end
 
   def add_rental(rental)
@@ -43,6 +54,6 @@ class Person < Nameable
   # Method to generate an id randomly
 
   def generate_id
-    rand(1_000..9_999)
+    rand(1..1000)
   end
 end
