@@ -6,7 +6,6 @@ require_relative '../classes/classroom_class'
 describe Student do
   before(:each) do
     @student = Student.new('Lionel',18, true, 'Math')
-    puts "age: #{@student.age} name: #{@student.name} classroom: #{@student.classroom}"
   end
 
   context 'Create a new student' do
