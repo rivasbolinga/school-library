@@ -18,9 +18,28 @@ describe Student do
     end
   end  
 
+  context 'Convert to a hash' do
+    it 'converts to a hash' do
+      expected_hash = {
+        name: 'Kelvin',
+        age: 40,
+        type: 'Teacher',
+        specialization: 'Computer Science',
+      }
+
+      result_hash = @teacher.to_hash
+
+      expect(@teacher.to_hash).to be_a(Hash)
+      expect(result_hash[:name]).to eq(expected_hash[:name])
+      expect(result_hash[:age]).to eq(expected_hash[:age])
+      expect(result_hash[:type]).to eq(expected_hash[:type])
+      expect(result_hash[:specialization]).to eq(expected_hash[:specialization])
+    end
 end
 
-  
+end
+
+
 
 
 
