@@ -27,6 +27,5 @@ describe Classroom do
 
       expect(@classroom.students).to include(new_student)
     end
-
   end
 end

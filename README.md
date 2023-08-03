@@ -36,12 +36,8 @@ It works as a tool for a library that keeps track of all the books as well as wh
 # 📖 About the project <a name="about-project"></a>
 
 
-This project is done as part of Microverse program with the goal of perfectionate the use of Object Oriented Program in Ruby.
-In this initial step, the learning objectives are:
+This project is done as part of Microverse program with the goal of perfectionate the use of Object Oriented Program in Ruby. Part of a collaborative project. The goal is to create an app where the user can interact with in order to manage the School Library adding books, people and rentals.
 
-- Implement classes and objects in Ruby.
-- Implement encapsulation and inheritance with Ruby.
-- Run a program using the command line.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -55,18 +51,20 @@ In this initial step, the learning objectives are:
 ### Key Features <a name="key-features"></a>
 
 For this app the users can chose between 7 options in the command:
-- List all books.
-- List all people.
-- Create a person (teacher or student, not a plain Person).
-- Create a book.
-- Create a rental.
-- List all rentals for a given person id.
-- Exit app.
+1 - List all books.
+2 - List all people.
+3 - Create a person (teacher or student, not a plain Person).
+4 - Create a book.
+5 - Create a rental.
+6 - List all rentals for a given person id.
+7 - Exit app.
+
+We have also done some improvements as part of a collaborative session:
 - Refactored the code using DRY, KISS and YAGNI and SOLID principles.
 - Preserve data in json files. 
 - Refactored respective methods for listing data from json files. 
-- Created new methods for saving data, loading data and dsiplaying preserved data from json files.
-
+- Created new methods for saving data, loading data and displaying preserved data from json files.
+- Test all the classes.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -93,11 +91,9 @@ Clone this repository to your desired folder:
 
 ### Usage
 
-To run the project, execute the following command:
+To start the app, run the command:
 ```
-  ruby teacher_class.rb
-  ruby student_class.rb
-  ruby person_class.rb
+  ruby main.rb
 ```
 
 
@@ -125,7 +121,7 @@ To run the project, execute the following command:
 
 ## 🔮 Future Features <a name="future-features"></a>
 
-- Run unit tests using RSPEC.
+- Increase data storage options. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,7 +148,7 @@ If you like this project give it a star 🌟🌟🌟
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 
-I would like to thank **![Microverse](https://img.shields.io/badge/Microverse-blueviolet)** 
+I would like to thank **![Microverse](https://img.shields.io/badge/Microverse-blueviolet)** and my partner [Baqar](https://github.com/baqar-abbas) for his participation in this project. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

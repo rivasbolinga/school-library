@@ -27,7 +27,6 @@ describe Book do
 
       expect(@book.rentals).to include(rental)
     end
-
   end
 
   context 'Convert to a hash' do
@@ -41,4 +40,3 @@ describe Book do
     end
   end
 end
-

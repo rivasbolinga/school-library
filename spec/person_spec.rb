@@ -16,7 +16,7 @@ describe Person do
       expect(person.age).to eq(28)
     end
     it 'Generates a random id' do
-       person = Person.new(333, 'Andrea', 28)
+      person = Person.new(333, 'Andrea', 28)
       expect(person.id).to be_a(Integer)
     end
   end
@@ -32,9 +32,8 @@ describe Person do
       @person.add_rental(rental)
       expect(@person.rentals).to include(rental)
     end
-
   end
- 
+
   context 'Convert data to a hash' do
     it 'converts data to a hash' do
       expected_hash = {
@@ -49,7 +48,7 @@ describe Person do
     end
   end
 
-   context 'Correct name' do
+  context 'Correct name' do
     it 'returns the correct name' do
       person = Person.new(333, 'Andrea', 28)
       expect(person.correct_name).to eq('Andrea')
@@ -68,7 +67,7 @@ describe Person do
     end
   end
 
-   context 'Check if person can use sevices' do
+  context 'Check if person can use sevices' do
     it 'returns true if person is older' do
       person = Person.new(123, 'Andrea', 28)
       expect(person.send(:can_use_services?)).to be(true)
@@ -78,10 +77,9 @@ describe Person do
       person = Person.new(234, 'Antonio', 10, parent_permission: false)
       expect(person.send(:can_use_services?)).to be(false)
     end
-     it 'returns true when person in under age but has parents persmission' do
+    it 'returns true when person in under age but has parents persmission' do
       person = Person.new(234, 'Antonio', 10, parent_permission: true)
       expect(person.send(:can_use_services?)).to be(true)
     end
   end
-
 end
