@@ -21,13 +21,3 @@ class Book
     }
   end
 end
-
-Book
-Person
-Student
-Teacher
-Classroom
-Rental
-Capitalize decorator 
-8. Decorator
-9. Trimmer decorator
