@@ -6,7 +6,6 @@ require_relative '../classes/classroom_class'
 describe Student do
   before(:each) do
     @teacher = Teacher.new('Kelvin',40, 'Computer Science')
-    puts "name: #{@teacher.name} age: #{@teacher.age} specialization: #{@teacher.specialization}"
   end
 
   context 'Create a new teacher' do
@@ -37,8 +36,13 @@ describe Student do
     end
 end
 
+       context 'Can use services' do
+       it 'returns true' do
+       expect(@teacher.can_use_services?).to eq(true)
+       end
 end
 
+end
 
 
 
