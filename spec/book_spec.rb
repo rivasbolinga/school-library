@@ -1,4 +1,3 @@
-# book_spec.rb
 require 'rspec'
 require_relative '../classes/book_class'
 require_relative '../classes/rental_class'
