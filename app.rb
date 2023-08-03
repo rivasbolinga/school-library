@@ -1,11 +1,11 @@
 require_relative 'classes/student_class'
 require_relative 'classes/teacher_class'
 require_relative 'classes/rental_class'
-require_relative 'classes/ui_class'
-require_relative 'classes/list_elements_class'
-require_relative 'classes/create_elements_class'
-require_relative 'classes/data_manager_class'
-require_relative 'classes/convert_data'
+require_relative 'app-management/ui_class'
+require_relative 'app-management/list_elements_class'
+require_relative 'app-management/create_elements_class'
+require_relative 'data-management/data_manager_class'
+require_relative 'data-management/convert_data'
 require 'json'
 
 class App
