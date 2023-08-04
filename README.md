@@ -51,8 +51,10 @@ This project is done as part of Microverse program with the goal of perfectionat
 ### Key Features <a name="key-features"></a>
 
 For this app the users can chose between 7 options in the command:
-1 - List all books.
+ 1 - List all books.
+ 
 2 - List all people.
+
 3 - Create a person (teacher or student, not a plain Person).
 4 - Create a book.
 5 - Create a rental.
